@@ -89,7 +89,8 @@ PORT=3001
 **Important Note:** Make sure to create a database named `storetrack` (or your preferred name) in PostgreSQL.
 
 #### Run the Backend Server
-```bashnpm start
+```
+bashnpm start
 ```
 Your backend server is now running at `http://localhost:3001`.
 
