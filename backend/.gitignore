@@ -1,0 +1,11 @@
+# Dependencies
+/node_modules
+
+# Environment variables
+
+# Server Configuration
+PORT=3001# Database Configuration
+DB_HOST=localhost
+DB_USER=postgres 
+DB_PASSWORD=admin
+DB_NAME=storetrack_dbDB_DIALECT=postgres
