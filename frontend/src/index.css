@@ -1,4 +1,3 @@
-/* Base styles for the entire application */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -6,31 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;  -moz-osx-font-smoothing: grayscale;
 
-  /* Background Image Setup */
-  background-image: url('./assets/warehouse-bg.jpg'); /* مسیر تصویر شما */
-  background-size: cover; /* تصویر کل صفحه را پوشش دهد */
-  background-position: center; /* تصویر در مرکز قرار گیرد */
-  background-attachment: fixed; /* تصویر هنگام اسکرول ثابت بماند */
-  min-height: 100vh; /* حداقل ارتفاع 100% viewport */
+  background-image: url('./assets/warehouse-bg.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-attachment: fixed; 
+  min-height: 100vh; 
   display: flex;
-  flex-direction: column; /* برای اینکه محتوا به درستی در صفحه قرار گیرد */
+  flex-direction: column; 
 }
 
 
 
-/* Optional: Overlay for better text readability on background image */
 #root {
-  min-height: 100vh; /* مطمئن شویم root هم کل ارتفاع را بگیرد */
+  min-height: 100vh; 
   display: flex;
   flex-direction: column;
-  /* ایجاد یک لایه تیره روی پس‌زمینه برای بهبود خوانایی متن */
-  background-color: rgba(0, 0, 0, 0.6); /* مشکی با 60% شفافیت */
-  color: white; /* رنگ متن پیش‌فرض را سفید می‌کنیم */
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: white; 
 }
 
-/* General styles for headings, paragraphs, etc. */
 h1, h2, h3, h4, h5, h6 {
-  color: #f0f0f0; /* رنگ روشن برای عنوان‌ها */
+  color: #f0f0f0; 
   margin-bottom: 1rem;
 }
 
@@ -64,7 +59,6 @@ p {
   animation: slideUp 0.8s ease-in;
 }
 
-/* Basic button styles for consistency */
 button {
   padding: 10px 20px;
   border-radius: 5px;
@@ -78,32 +72,30 @@ button:hover {
   filter: brightness(70%);
 }
 
-/* Specific button colors (can be customized) */
 .btn-primary {
-  background-color: #007bff; /* آبی */
+  background-color: #007bff; 
   color: white;
 }
 
 .btn-success {
-  background-color: #28a745; /* سبز */
+  background-color: #28a745; 
   color: white;
 }
 
 .btn-warning {
-  background-color: #ffc107; /* زرد */
+  background-color: #ffc107; 
   color: black;}
 
 .btn-danger {
-  background-color: #dc3545; /* قرمز */
+  background-color: #dc3545; 
   color: white;
 }
 
 .btn-secondary {
-  background-color: #6c757d; /* خاکستری */
+  background-color: #6c757d; 
   color: white;
 }
 
-/* Input field basic styles */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -115,8 +107,8 @@ select {
   border-radius: 4px;
   background-color: #333;
   color: white;
-  width: 100%; /* برای اینکه ورودی‌ها عرض کامل را بگیرند */
-  box-sizing: border-box; /* برای جلوگیری از سرریز شدن padding */
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 input[type="text"]::placeholder,
@@ -124,24 +116,22 @@ textarea::placeholder {
   color: #bbb;
 }
 
-/* Container for pages */
+
 .page-container {
   padding: 20px;
-  max-width: 1200px; /* حداکثر عرض برای محتوا */
-  margin: 0 auto; /* در مرکز قرار گرفتن */
-  flex-grow: 1; /* اجازه می‌دهد تا فضای باقی‌مانده را اشغال کند */
+  max-width: 1200px; 
+  margin: 0 auto;
+  flex-grow: 1; 
 }
 
-/* Card/Section background for better contrast */
 .card-section {
-  background: rgba(32, 35, 42, 0.8); /* پس‌زمینه تیره با شفافیت برای بخش‌ها */
+  background: rgba(32, 35, 42, 0.8); 
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -154,7 +144,7 @@ th, td {
 }
 
 th {
-  background-color: rgba(51, 51, 51, 0.9); /* سرتیتر جدول کمی تیره‌تر */
+  background-color: rgba(51, 51, 51, 0.9); 
   color: #ddd;
 }
 
@@ -166,7 +156,6 @@ tbody tr:hover {
   filter: brightness(115%);
 }
 
-/* List styles */
 ul {
   list-style: none;
   padding: 0;
