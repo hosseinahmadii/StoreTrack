@@ -6,13 +6,11 @@ const InventoryHistoryPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // فیلترها
   const [productNameFilter, setProductNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('');
   const [startDateFilter, setStartDateFilter] = useState('');
   const [endDateFilter, setEndDateFilter] = useState('');
 
-  // گرفتن دیتا از API
   const fetchMovements = async () => {
     setLoading(true);
     setError(null);
@@ -20,25 +18,21 @@ const InventoryHistoryPage = () => {
       const response = await axios.get('http://localhost:3001/api/inventory');
       let data = response.data;
 
-      // فیلتر نام محصول
       if (productNameFilter) {
         data = data.filter(m =>
           m.product?.name?.toLowerCase().includes(productNameFilter.toLowerCase())
         );
       }
 
-      // فیلتر نوع حرکت
       if (typeFilter) {
         data = data.filter(m => m.type === typeFilter);
       }
 
-      // فیلتر تاریخ شروع
       if (startDateFilter) {
         const start = new Date(startDateFilter);
         data = data.filter(m => new Date(m.date) >= start);
       }
 
-      // فیلتر تاریخ پایان
       if (endDateFilter) {
         const end = new Date(endDateFilter);
         data = data.filter(m => new Date(m.date) <= end);
@@ -53,7 +47,6 @@ const InventoryHistoryPage = () => {
     }
   };
 
-  // وقتی فیلترها تغییر کرد، دوباره دیتا رو بگیر
   useEffect(() => {
     fetchMovements();
   }, [productNameFilter, typeFilter, startDateFilter, endDateFilter]);
