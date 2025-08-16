@@ -96,7 +96,8 @@ Your backend server is now running at `http://localhost:3001`.
 
 ### 3. Set up the Frontend
 
-In a new terminal, navigate to the `frontend` folder and install the dependencies.```bash
+In a new terminal, navigate to the `frontend` folder and install the dependencies.
+```bash
 cd frontend
 npm install
 ```
@@ -107,9 +108,11 @@ The frontend needs to know the address of the backend API. To do this, create a 
 
 **`frontend/.env`**
 ```env
-REACT_APP_API_URL=http://localhost:3001```
+REACT_APP_API_URL=http://localhost:3001
+```
 
 #### Run the Frontend Application
+
 ```bash
 npm start
 ```
