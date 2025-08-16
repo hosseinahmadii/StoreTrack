@@ -35,7 +35,7 @@ Here are a few views from different parts of the application:
 | ![Product List](./frontend/assets/product.png)     | ![Add Product Form](./frontend/assets/report.png)    |
 |                                                    |                                                      |
 
-| Order Page                                        | Goods Entry/Exit History                             |
+| Entry/Exit History                                      |  Order Page                       |
 | -------------------------------------------------- | ---------------------------------------------------- |
 | ![Product List](./frontend/assets/history.png)     | ![Add Product Form](./frontend/assets/order.png)     |
 
