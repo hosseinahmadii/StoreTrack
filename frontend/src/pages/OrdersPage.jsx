@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';const OrdersPage = () => {
-  // حالت‌های اصلی شما برای فیلتر و جدول
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -9,7 +8,6 @@ import axios from 'axios';const OrdersPage = () => {
   const [startDateFilter, setStartDateFilter] = useState('');
   const [endDateFilter, setEndDateFilter] = useState('');
 
-  // حالت‌های مدال ثبت سفارش
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
   const [newOrderItems, setNewOrderItems] = useState([]);  const [newOrderCustomer, setNewOrderCustomer] = useState('');
