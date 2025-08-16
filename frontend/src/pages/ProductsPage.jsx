@@ -1,4 +1,3 @@
-// frontend/src/pages/ProductsPage.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -8,7 +7,6 @@ const ProductsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // State for Add/Edit Form
   const [showForm, setShowForm] = useState(false);
   const [currentProduct, setCurrentProduct] = useState(null);
   const [name, setName] = useState('');
@@ -17,13 +15,11 @@ const ProductsPage = () => {
   const [quantity, setQuantity] = useState('');
   const [categoryId, setCategoryId] = useState('');
 
-  // State for Filters
   const [productNameFilter, setProductNameFilter] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('');
 
   const API_BASE_URL = 'http://localhost:3001/api';
 
-  // --- Fetch Data ---
   const fetchProducts = async () => {
     setLoading(true);
     setError(null);
@@ -59,7 +55,6 @@ const ProductsPage = () => {
     fetchCategories();
   }, []);
 
-  // --- Form Handlers ---
   const handleAddProductClick = () => {
     setCurrentProduct(null);
     setName('');
@@ -111,7 +106,6 @@ const ProductsPage = () => {
     }
   };
 
-  // --- Delete Handler ---
   const handleDeleteProduct = async (productId) => {
     if (!window.confirm(`Are you sure you want to delete product ID: ${productId}? This action cannot be undone.`)) {
       return;
