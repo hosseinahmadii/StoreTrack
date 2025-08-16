@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import io from 'socket.io-client'; // <-- این خط حذف شد
 
 const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
@@ -11,13 +10,11 @@ const CategoriesPage = () => {
   const [editingCategory, setEditingCategory] = useState(null);
 
   const API_URL = 'http://localhost:3001/api/categories';
-  // const SOCKET_URL = 'http://localhost:3001'; // <-- این خط حذف شد
 
-  // دریافت تمام دسته‌بندی‌ها از سرور
   const fetchCategories = async () => {
     try {
       const response = await axios.get(API_URL);      if (Array.isArray(response.data)) {
-        setCategories(response.data.sort((a,b) => a.name.localeCompare(b.name))); // مرتب‌سازی اولیه
+        setCategories(response.data.sort((a,b) => a.name.localeCompare(b.name)));  
       } else {
         console.error("API response is not an array:", response.data);
         setError("Invalid data format received from the server.");
@@ -31,13 +28,10 @@ const CategoriesPage = () => {
     }
   };
 
-  // --- useEffect برای لود اولیه داده‌ها ---
   useEffect(() => {
     fetchCategories();
-    // تمام بخش‌های مربوط به Socket.IO از اینجا حذف شدند
   }, []);
 
-  // افزودن دسته‌بندی جدید
   const handleAddCategory = async (e) => {
     e.preventDefault();
     if (!newCategoryName.trim()) {
@@ -47,19 +41,18 @@ const CategoriesPage = () => {
     try {
       await axios.post(API_URL, { name: newCategoryName });
       setNewCategoryName('');
-      await fetchCategories(); // <-- بازخوانی لیست پس از افزودن
+      await fetchCategories(); 
     } catch (err) {
       console.error("Error adding category:", err);
       alert(`Failed to add category: ${err.response?.data?.message || err.message}`);
     }
   };
 
-  // حذف یک دسته‌بندی
   const handleDeleteCategory = async (categoryId) => {
     if (window.confirm('Are you sure you want to delete this category?')) {
       try {
         await axios.delete(`${API_URL}/${categoryId}`);
-        await fetchCategories(); // <-- بازخوانی لیست پس از حذف
+        await fetchCategories(); 
       } catch (err) {
         console.error("Error deleting category:", err);
         alert(`Failed to delete category: ${err.response?.data?.message || err.message}`);
@@ -67,7 +60,6 @@ const CategoriesPage = () => {
     }
   };
 
-  // آپدیت یک دسته‌بندی
   const handleUpdateCategory = async (e) => {
     e.preventDefault();
     if (!editingCategory || !editingCategory.name.trim()) {
@@ -76,15 +68,14 @@ const CategoriesPage = () => {
     }
     try {
       await axios.put(`${API_URL}/${editingCategory.id}`, { name: editingCategory.name });
-      setEditingCategory(null); // خروج از حالت ویرایش
-      await fetchCategories(); // <-- بازخوانی لیست پس از آپدیت
+      setEditingCategory(null); 
+      await fetchCategories(); 
     } catch (err) {
       console.error("Error updating category:", err);
       alert(`Failed to update category: ${err.response?.data?.message || err.message}`);
     }
   };
 
-  // ظاهر کامپوننت
   return (
     <div className="page-container">
       <h1>Manage Categories</h1>
@@ -116,7 +107,6 @@ const CategoriesPage = () => {
             categories.map((category) => (
               <li key={category.id}>
                 {editingCategory && editingCategory.id === category.id ? (
-                  // حالت ویرایش
                   <form onSubmit={handleUpdateCategory} style={{ display: 'flex', alignItems: 'center', width: '100%', gap: '10px' }}>
                     <input
                       type="text"
@@ -128,7 +118,6 @@ const CategoriesPage = () => {
                     <button type="button" onClick={() => setEditingCategory(null)} className="btn-secondary">Cancel</button>
                   </form>
                 ) : (
-                  // حالت نمایش عادی
                   <>
                     <span>{category.name}</span>
                     <div style={{ display: 'flex', gap: '10px' }}>
